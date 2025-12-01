@@ -1,0 +1,354 @@
+import random
+
+number = random.randint(1, 10)
+guess = int(input("AAPKE VIKALP HAI 1-10 INKE BICH ME EK SANKHYA CHUNIYE: "))
+
+if guess == number:
+    print("SAHIII JAMABBB")
+else:
+    print("SAMJHA CHAUHA PR YEH ULTAR GALAT HAI!! SAHI JANAB YEH THA:", number)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  PIN = "9106"
+balance = 20000
+
+print("Welcome To MY Atm")
+
+attempts = 0
+while attempts < 3:
+    user_pin = input("Enter your PIN: ")
+    if user_pin == PIN:
+        print("PIN acceted")
+        break
+    else:
+        attempts += 1
+        print(f"Invalid PIN. You have {3 - attempts} attempts remaining.")
+else:
+    print("Too many incorrect PIN attempts. Your card is temp. blocked. Please try again after 24 hours.")
+while True:
+    print("\n--- ATM Menu ---")
+    print("1. Check Balance")
+    print("2. Withdraw")
+    print("3. Deposit")
+    print("4. Exit")
+
+    choice = input("Enter your choice (1-4): ")
+
+    if choice == "1":
+        print(f"Your balance is: Rs{balance}")
+    elif choice == "2":
+        amount = int(input("Enter amount to withdraw: Rs"))
+        if amount <= balance:
+            balance -= amount
+            print(f"Withdrawal successful. New balance: Rs{balance}")
+        else:
+            print("Insufficient balance.")
+    elif choice == "3":
+        amount = int(input("Enter amount to deposit: Rs"))
+        balance += amount
+        print(f"Deposit successful. New balance: Rs{balance}")
+    elif choice == "4":
+        print("Thank you for using our ATM. Goodbye!")
+        break
+    else:
+        print("Invalid choice. Please try again.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+num = float(input("Enter a number: "))
+
+if num > 0:
+    print("The number is Positive")
+elif num < 0:
+    print("The number is Negative")
+else:
+    print("The number is Zero")
+
+if num % 2 == 0:
+    print("The number is even")
+else:
+    print("The number is odd")
+
+
+
+
+
+
+
+
+
+import smtplib
+import ssl
+from email.message import EmailMessage
+
+EMAIL = "ayushassociates2006@gmail.com"
+APP_PASSWORD = "your_app_password_here"
+RECEIVER = "lakhyaassociates05@gmail.com"
+
+msg = EmailMessage()
+msg["From"] = EMAIL
+msg["To"] = RECEIVER
+msg["Subject"] = "Hiii"
+msg.set_content("This side ayush")
+
+context = ssl.create_default_context()
+
+with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
+    server.login(EMAIL, APP_PASSWORD)
+    server.send_message(msg)
+
+print("done!")
+
+
+
+
+
+
+
+
+
+
+
+import pywhatkit as kit
+
+phone = "+919875827539"  
+message = "Hi, this side Ayush "
+kit.sendwhatmsg_instantly(
+    phone_no=phone,
+    message=message,
+    wait_time=20, 
+    tab_close=True
+)
+
+print("DONE! ")
+
+
+
+
+
+
+
+
+
+import pyttsx3
+engine = pyttsx3.init()
+text = input("Enter text to speak: ")
+engine.say(text)
+engine.runAndWait()
+
+print("Speech completed successfully!")
+
+
+
+
+
+
+
+import shutil
+import os
+
+try:
+    source = input("Enter source file path: ").strip()
+    destination = input("Enter destination file path: ").strip()
+    if not os.path.isfile(source):
+        print("Error: Source file not found!")
+    else:
+        # Create destination directory if not exists
+        os.makedirs(os.path.dirname(destination), exist_ok=True)
+
+        shutil.copy(source, destination)
+        print("File transferred successfully!")
+
+except PermissionError:
+    print("Permission denied! .")
+except FileNotFoundError:
+    print("File not found. .")
+except Exception as e:
+    print(f"error : {e}")
+
+
+
+
+
+
+
+
+
+
+  from flask import Flask
+
+app = Flask(__name__)  
+
+@app.route("/")
+def home():
+    return """
+    <h1>I am Home page</h1>
+    <h2>I am running in Flask</h2>
+    """
+if __name__ == "__main__":
+    app.run(debug=True)  
+
+
+
+
+
+
+while True:
+    print("\nSIMPLE CALCULATOR")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
+    print("5. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "5":
+        print("Exiting calculator...")
+        break
+
+    if choice not in ("1", "2", "3", "4"):
+        print("Invalid choice! Try again.")
+        continue
+
+    try:
+        a = float(input("Enter first number: "))
+        b = float(input("Enter second number: "))
+
+        if choice == "1":
+            result = a + b
+        elif choice == "2":
+            result = a - b
+        elif choice == "3":
+            result = a * b
+        elif choice == "4":
+            if b == 0:
+                print("Error: Cannot divide by zero.")
+                continue
+            result = a / b
+
+        print("Result =", result)
+
+    except ValueError:
+        print("Invalid input")
+
+
+
+
+
+
+age = int(input("Enter your age: "))
+
+if age > 18:
+    print("You can watch the movie.")
+elif age >= 15:
+    print("You can watch the movie with your parents.")
+else:
+    print("Not allowed.")
+
+
+
+
+
+
+
+
+
+  import google.generativeai as genai   
+
+API_KEY = "YOUR_GOOGLE_KEY"           
+genai.configure(api_key=API_KEY)
+
+model = genai.GenerativeModel("gemini-1.5-flash")
+
+print("Type 'exit' to quit.")
+while True:
+    user = input("You: ")
+    if user.strip().lower() == "exit":
+        print("Bye!")
+        break
+    resp = model.generate_content(user)
+    print("Bot:", resp.text)
+
+
+
+
+
+
+Kilograms=float(input("enter a number"))
+km=float(input("enter a number"))
+meter=1000*km
+Pounds = Kilograms * 2.23
+print("meter",meter)
+print("pounds",Pounds)
+
+
+
+
+
+
+from twilio.rest import Client
+account_sid = "account"
+auth_token = "token"
+client = Client(account_sid, auth_token)
+message = client.messages.create(
+    body="Hii  This is a test message is from ayush",
+    from_="+1XXXXXXXXXX",
+    to="+919875827539"     
+  )
+print("done!")
+print("Message ", message.sid)
+
+
+
+
+
+  import streamlit as st
+import pandas as pd
+
+st.title("Hey, Good Morning ")
+st.text("WELCOME TO MY DASHBOARD")
+st.balloons()
+st.link_button("Google", "https://github.com/")
+st.set_page_config(layout="wide")
+
+st.header("Hello, welcome to ayush's dashboard")
+st.write("you can write", 10)
+
+name = st.text_input("enter your name")
+age = st.number_input("enter your age")
+st.write("Your name is ", name, "Your age is ", age)
+
+st.selectbox("Enter Your Course :", ["BTECH", "BCA", "MCA", "BA"])
+if st.button("Click me"):
+    st.success("Clicked button ")
+
+file = st.file_uploader("Upload your file")
+if file:
+    content = file.read()
+    st.write("file uploaded Successfully !!!!!")
