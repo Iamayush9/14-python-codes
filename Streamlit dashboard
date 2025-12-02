@@ -1,0 +1,21 @@
+import streamlit as st import pandas as pd
+
+st.title("Hey, Good Morning ") st.text("WELCOME TO MY DASHBOARD") st.balloons() st.link_button("Google", "https://github
+
+.com/")
+
+st.set_page_config(layout="wide")
+
+st.header("Hello, welcome to ayush's dashboard") st.write("you can write", 10)
+
+name = st.text_input("enter your name") age = st.number_input("enter your age") st.write("Your name is ", name, "Your age is ", age)
+
+st.selectbox("Enter Your Course :", ["BTECH", "BCA", "MCA", "BA"]) if st.button("Click me"): st.success("Clicked button ")
+
+file = st.file_uploader("Upload your file") if file:
+
+content = file.read()
+
+st.write("file uploaded
+
+Successfully !!!!")
