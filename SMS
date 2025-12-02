@@ -1,0 +1,17 @@
+from twilio.rest import Client
+
+account_sid = "account"
+
+auth_token = "token"
+
+client = Client(account_sid, auth_token)
+
+message = client.messages.create(
+
+body="Hii This is a test message is from ayush",
+
+from_="+1XXXXXXXXXX", to="+919875827539"
+
+print("done!")
+
+print("Message ", message.sid)
